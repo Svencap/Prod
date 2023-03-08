@@ -1,2 +1,2 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/18d2f44db1cae6982f84/maintainability)](https://codeclimate.com/github/Svencap/Prod/maintainability)
-![workflow](https://github.com/Svencap/Prod/actions/workflows/main.yml/badge.svg)
+![workflow](https://github.com/Svencap/Prod/actions/workflows/main.yml/badge.svg?event=push)
