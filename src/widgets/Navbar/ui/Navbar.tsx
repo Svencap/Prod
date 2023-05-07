@@ -11,9 +11,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     const { t, i18n } = useTranslation();
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
-            <div className={cls.links}>
-
-            </div>
+            <div className={cls.links} />
         </div>
     );
 };
