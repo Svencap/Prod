@@ -1,4 +1,5 @@
 import { BugButton } from 'app/providers/BugButton';
+import { Counter } from 'entities/Counter';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -7,8 +8,9 @@ const MainPage = () => {
 
     return (
         <div>
-            <BugButton />
+            {/* <BugButton /> */}
             {t('Главная страница')}
+            <Counter />
         </div>
     );
 };
