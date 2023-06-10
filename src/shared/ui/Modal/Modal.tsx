@@ -27,7 +27,7 @@ export const Modal = (props: ModalProps) => {
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing,
-        [cls[theme]]: true,
+        // [cls[theme]]: true,
     };
 
     const onContentClick = (e: React.MouseEvent) => {
