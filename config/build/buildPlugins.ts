@@ -22,6 +22,7 @@ export function buildPlugins({
             __IS_DEV__: JSON.stringify(isDev),
         }),
     ];
+
     if (isDev) {
         plugins.push(
             new webpack.HotModuleReplacementPlugin(),
