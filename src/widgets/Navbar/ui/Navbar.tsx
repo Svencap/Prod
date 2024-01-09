@@ -5,9 +5,10 @@ import { Modal } from "shared/ui/Modal/Modal";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { useCallback, useState } from "react";
 import { LoginModal } from "features/AuthByUsername";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getUserAuthData } from "entities/User/model/selectors/getUserAuthData";
 import { userActions } from "entities/User";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import cls from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -19,7 +20,7 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
