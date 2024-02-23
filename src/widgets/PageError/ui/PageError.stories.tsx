@@ -17,9 +17,6 @@ const Template: ComponentStory<typeof PageError> = (args) => (
 );
 
 export const Light = Template.bind({});
-Light.args = {
-    children: 'Text',
-};
 
 export const Dark = Template.bind({});
 Dark.args = {};
