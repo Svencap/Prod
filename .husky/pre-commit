@@ -1,15 +1,8 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-# Запускаем линтеры
-npm run lint:ts
-if [ $? -ne 0 ]; then
-  echo "Линтер для TypeScript вернул ошибку. Выполняем фиксацию."
-  npm run lint:ts:fix
-fi
 
+npm run lint:scss:fix
+npm run lint:ts:fix
+npm run lint:ts
 npm run lint:scss
-if [ $? -ne 0 ]; then
-  echo "Линтер для SCSS вернул ошибку. Выполняем фиксацию."
-  npm run lint:scss:fix
-fi
