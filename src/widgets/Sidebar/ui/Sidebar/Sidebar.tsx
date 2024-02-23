@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { ThemeSwitcher } from "shared/ui/ThemeSwitcher";
 import { LangSwitcher } from "shared/ui/LangSwitcher/ui/LangSwitcher";
@@ -16,8 +16,9 @@ interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false);
+
     const { t } = useTranslation();
 
     const onToggle = () => setCollapsed((prev) => !prev);
@@ -44,28 +45,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 {sidebarItemsList.map((item) => (
                     <SidebarItem item={item} collapsed={collapsed} key={item.path} />
                 ))}
-                {/* <AppLink
-                    to={RoutePath.main}
-                    theme={AppLinkThemes.SECONDARY}
-                    className={cls.item}
-                >
-                    <MainIcon className={cls.icon} />
-                    <span className={cls.link}>
-                        {' '}
-                        {t('Главная')}
-                    </span>
-                </AppLink>
-                <AppLink
-                    to={RoutePath.about}
-                    className={cls.item}
-                    theme={AppLinkThemes.SECONDARY}
-                >
-                    <AboutIcon className={cls.icon} />
-                    <span className={cls.link}>
-                        {' '}
-                        {t('Сайт')}
-                    </span>
-                </AppLink> */}
             </div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
@@ -73,4 +52,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </div>
         </div>
     );
-};
+});
