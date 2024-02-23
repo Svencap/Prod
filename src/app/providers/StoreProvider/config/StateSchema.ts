@@ -1,30 +1,43 @@
 import {
-    AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
+    AnyAction,
+    CombinedState,
+    EnhancedStore,
+    Reducer,
+    ReducersMapObject,
 } from "@reduxjs/toolkit";
 import { ProfileSchema } from "entities/Profile/model/types/profile";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUsername";
+import { AxiosInstance } from "axios";
+import { NavigateOptions, To } from "react-router";
 
 export interface StateSchema {
   user: UserSchema;
 
   // Async reducers
   loginForm?: LoginSchema;
-  profile?: ProfileSchema
+  profile?: ProfileSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
-  reduce: (
-    state: StateSchema,
-    action: AnyAction
-  ) => CombinedState<StateSchema>;
+  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore {
-  reducerManager: ReducerManager
+  reducerManager: ReducerManager;
+}
+
+export interface ThunkExtraArg {
+  api: AxiosInstance;
+  navigate: (to: To, options?: NavigateOptions) => void;
+}
+
+export interface ThunkConfig<T> {
+  rejectValue: T;
+  extra: ThunkExtraArg;
 }

@@ -14,6 +14,7 @@ export default {
     testEnvironment: 'jsdom',
     globals: {
         __IS_DEV__: true,
+        __API__: true,
     },
 
     // Indicates whether the coverage information should be collected while executing the test
